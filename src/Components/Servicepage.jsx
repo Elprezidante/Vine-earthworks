@@ -104,6 +104,19 @@ export default function ServicesPage({ onNavigate }) {
     { num: "06", title: "Excavator Breaker", tag: "Demolition", desc: "Hydraulic breaker attachments for breaking boulders, reinforced concrete slabs, and hard rocky ground on construction sites.", img: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=500&q=80" },
   ];
 
+  const PDF_DOWNLOADS = {
+    glass: {
+      href: "/VineEarthworks_Glass_Aluminium_Catalog.pdf",
+      label: "Download Glass & Aluminium Brochure",
+      download: true,
+    },
+    earth: {
+      href: "/VineEarthworks_Earthworks_Catalog.pdf",
+      label: "Download Earthworks Brochure",
+      download: true,
+    },
+  };
+
   const services = activeTab === "glass" ? GLASS_SERVICES : EARTH_SERVICES;
 
   return (
@@ -154,6 +167,63 @@ export default function ServicesPage({ onNavigate }) {
             </button>
           ))}
         </div>
+      </div>
+
+      <div style={{
+        margin: "0 6vw 32px",
+        padding: "24px 28px",
+        display: "flex",
+        flexWrap: "wrap",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: 16,
+        background: COLORS.darkCard,
+        border: `1px solid ${COLORS.border}`,
+        borderRadius: 16,
+      }}>
+        <div style={{ maxWidth: 660, minWidth: 0 }}>
+          <div style={{
+            fontFamily: FONTS.display,
+            fontWeight: 700,
+            fontSize: 14,
+            letterSpacing: 0.8,
+            color: COLORS.orange,
+            textTransform: "uppercase",
+            marginBottom: 10,
+          }}>
+            Download our brochure
+          </div>
+          <p style={{
+            fontFamily: FONTS.body,
+            fontSize: 14,
+            lineHeight: 1.7,
+            color: COLORS.steel,
+            margin: 0,
+          }}>
+            View or save a detailed PDF with scope, project examples, and service highlights for the current section.
+          </p>
+        </div>
+        <a
+          href={PDF_DOWNLOADS[activeTab].href}
+          download
+          target="_blank"
+          rel="noreferrer noopener"
+          style={{
+            background: COLORS.orange,
+            color: "#fff",
+            padding: "14px 28px",
+            borderRadius: 999,
+            textDecoration: "none",
+            fontFamily: FONTS.display,
+            fontWeight: 800,
+            fontSize: 14,
+            letterSpacing: 0.8,
+            whiteSpace: "normal",
+            maxWidth: "100%",
+          }}
+        >
+          {PDF_DOWNLOADS[activeTab].label}
+        </a>
       </div>
 
       {/* Grid */}

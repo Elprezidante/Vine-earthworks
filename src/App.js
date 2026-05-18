@@ -33,13 +33,13 @@ const HOME_SLIDES = [
     title: 'Modern Glass & Aluminium Solutions',
     subtitle: 'Precision installations for homes, offices, and commercial facades.',
     button: 'View Services',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80',
+    image: '/Glass installation.jpg',
   },
   {
     title: 'Dependable Earthmoving Expertise',
     subtitle: 'Site clearing, excavation, road grading, and material delivery across Nairobi.',
     button: 'Learn More',
-    image: 'https://images.unsplash.com/photo-1511457784654-60d0d0e58f16?auto=format&fit=crop&w=1400&q=80',
+    image: '/earthmoving.jpg',
   },
   {
     title: 'Projects Delivered On Time',
