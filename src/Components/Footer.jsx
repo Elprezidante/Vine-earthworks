@@ -14,12 +14,12 @@ const EARTH_LINKS = [
 ];
 
 const QUICK_LINKS = [
-  { label: "Home", page: "home" },
-  { label: "Glass Works", page: "home", section: "services" },
-  { label: "Earthworks", page: "home", section: "earthworks" },
-  { label: "Gallery", page: "home", section: "gallery" },
-  { label: "About Us", page: "home", section: "about" },
-  { label: "Contact", page: "contact" },
+  { label: "Home", route: "/" },
+  { label: "Glass Works", route: "/services" },
+  { label: "Earthworks", route: "/services" },
+  { label: "Gallery", route: "/gallery" },
+  { label: "About Us", route: "/about" },
+  { label: "Contact", route: "/contact" },
 ];
 
 function FooterLink({ label, onClick }) {
@@ -55,13 +55,12 @@ export default function Footer({ onNavigate }) {
   const [subscribed, setSubscribed] = useState(false);
 
   const handleNav = (item) => {
-    if (item.section) {
-      onNavigate("home");
-      setTimeout(() => document.getElementById(item.section)?.scrollIntoView({ behavior: "smooth" }), 80);
+    if (item.route) {
+      onNavigate(item.route);
     } else {
-      onNavigate(item.page);
-      window.scrollTo({ top: 0 });
+      onNavigate(item.page || "home");
     }
+    window.scrollTo({ top: 0 });
   };
 
   const handleSubscribe = () => {

@@ -33,19 +33,22 @@ const HOME_SLIDES = [
     title: 'Modern Glass & Aluminium Solutions',
     subtitle: 'Precision installations for homes, offices, and commercial facades.',
     button: 'View Services',
-    image: '/Glass installation.jpg',
+    route: '/services',
+    image: '/Glass%20installation.jpg',
   },
   {
     title: 'Dependable Earthmoving Expertise',
     subtitle: 'Site clearing, excavation, road grading, and material delivery across Nairobi.',
     button: 'Learn More',
+    route: '/services',
     image: '/earthmoving.jpg',
   },
   {
     title: 'Projects Delivered On Time',
     subtitle: 'Quality workmanship and responsive support for every stage of your build.',
     button: 'Get a Quote',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80',
+    route: '/contact',
+    image: '/Project%20delivery.avif',
   },
 ];
 
@@ -87,7 +90,7 @@ function HomeCarousel() {
             <p style={{ fontSize: 18, lineHeight: 1.6, maxWidth: 720, margin: '0 auto 24px', color: '#dfe9ff' }}>{slide.subtitle}</p>
             <button
               type="button"
-              onClick={() => navigate('/services')}
+              onClick={() => navigate(slide.route)}
               style={{
                 background: '#E8541A',
                 border: 'none',
