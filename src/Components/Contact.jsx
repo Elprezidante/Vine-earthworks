@@ -104,20 +104,39 @@ export default function ContactPage() {
   const [form, setForm] = useState({ fname: "", lname: "", email: "", phone: "", service: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
-
-  const formAction = `https://formsubmit.co/${encodeURIComponent(CONTACT.email)}`;
-  const nextUrl = typeof window !== "undefined" ? `${window.location.origin}/contact` : "/contact";
+  const [error, setError] = useState(null);
 
   const set = (key) => (e) => setForm(f => ({ ...f, [key]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
     if (!form.email || !form.message) {
-      e.preventDefault();
-      alert("Please enter your email and a message before sending.");
+      setError("Please enter your email and a message before sending.");
       return;
     }
+    // Open user's email client using mailto: and the address from theme.js
+    setError(null);
+    const subject = encodeURIComponent(`Inquiry from ${form.fname || ''} ${form.lname || ''}`.trim() || 'Vine Earthworks Inquiry');
+    const bodyLines = [
+      `Name: ${form.fname || ''} ${form.lname || ''}`.trim(),
+      `Email: ${form.email}`,
+      form.phone ? `Phone: ${form.phone}` : '',
+      form.service ? `Service: ${form.service}` : '',
+      '',
+      `Message:\n${form.message}`,
+    ].filter(Boolean).join('\n');
 
-    setSending(true);
+    const mailto = `mailto:${CONTACT.email}?subject=${subject}&body=${encodeURIComponent(bodyLines)}`;
+    // Try opening mail client in a new tab/window; fallback to navigating current window
+    try {
+      window.open(mailto, '_blank');
+    } catch (err) {
+      window.location.href = mailto;
+    }
+
+    setSubmitted(true);
+    setForm({ fname: "", lname: "", email: "", phone: "", service: "", message: "" });
   };
 
   return (
@@ -279,8 +298,6 @@ export default function ContactPage() {
 
         {/* Right: form */}
         <form
-          action={formAction}
-          method="POST"
           onSubmit={handleSubmit}
           style={{
             background: COLORS.darkCard, border: `1px solid ${COLORS.border}`,
@@ -288,10 +305,6 @@ export default function ContactPage() {
             boxShadow: "0 24px 60px rgba(0,0,0,0.3)",
           }}
         >
-          <input type="hidden" name="_next" value={nextUrl} />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_subject" value="New contact from Vine Earthworks website" />
-          <input type="hidden" name="_replyto" value={form.email || CONTACT.email} />
           {submitted ? (
             <div style={{ textAlign: "center", padding: "40px 0" }}>
               <div style={{ fontSize: 56, marginBottom: 16 }}>✅</div>
@@ -318,6 +331,16 @@ export default function ContactPage() {
               <p style={{ fontFamily: FONTS.body, fontSize: 13, color: COLORS.steel, marginBottom: 28 }}>
                 Fill in the form and we'll get back to you with a free quote.
               </p>
+
+              {error && (
+                <div style={{
+                  background: "rgba(244,67,54,0.1)", border: "1px solid rgba(244,67,54,0.3)",
+                  borderRadius: 8, padding: "12px 16px", marginBottom: 20,
+                  fontFamily: FONTS.body, fontSize: 13, color: "#F44336",
+                }}>
+                  ⚠️ {error}
+                </div>
+              )}
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 16px" }}>
                 <InputField label="First Name" id="fname" placeholder="John" value={form.fname} onChange={set("fname")} />

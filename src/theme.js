@@ -23,7 +23,7 @@ export const FONTS = {
 export const CONTACT = {
   phone: '+254 705 241 995',
   phoneDisplay: '+254 705 241 995',
-  email: 'isaacmburu2540@gmail.com',
+  email: 'vineearthworks@gmail.com',
   location: 'Enkare,Along NamangaRoad,Nairobi-Kenya',
   social: '@VineEarthworksGlass',
   facebook: 'https://facebook.com/Vine Earthworks Glass and Aluminium',
