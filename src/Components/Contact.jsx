@@ -27,7 +27,7 @@ function InputField({ label, type = "text", id, placeholder, value, onChange }) 
         transition: "color 0.2s",
       }}>{label}</label>
       <input
-        type={type} id={id} placeholder={placeholder}
+        type={type} id={id} name={id} placeholder={placeholder}
         value={value} onChange={onChange}
         onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
         style={{
@@ -54,7 +54,7 @@ function TextAreaField({ label, id, placeholder, value, onChange }) {
         transition: "color 0.2s",
       }}>{label}</label>
       <textarea
-        id={id} placeholder={placeholder} value={value} onChange={onChange}
+        id={id} name={id} placeholder={placeholder} value={value} onChange={onChange}
         onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
         rows={5}
         style={{
@@ -81,7 +81,7 @@ function SelectField({ label, id, value, onChange, options }) {
         color: focused ? COLORS.orange : COLORS.steel, marginBottom: 8, transition: "color 0.2s",
       }}>{label}</label>
       <select
-        id={id} value={value} onChange={onChange}
+        id={id} name={id} value={value} onChange={onChange}
         onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
         style={{
           width: "100%",
@@ -105,11 +105,19 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
 
+  const formAction = `https://formsubmit.co/${encodeURIComponent(CONTACT.email)}`;
+  const nextUrl = typeof window !== "undefined" ? `${window.location.origin}/contact` : "/contact";
+
   const set = (key) => (e) => setForm(f => ({ ...f, [key]: e.target.value }));
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    if (!form.email || !form.message) {
+      e.preventDefault();
+      alert("Please enter your email and a message before sending.");
+      return;
+    }
+
     setSending(true);
-    setTimeout(() => { setSending(false); setSubmitted(true); }, 1600);
   };
 
   return (
@@ -270,11 +278,20 @@ export default function ContactPage() {
         </div>
 
         {/* Right: form */}
-        <div style={{
-          background: COLORS.darkCard, border: `1px solid ${COLORS.border}`,
-          borderRadius: 16, padding: "36px",
-          boxShadow: "0 24px 60px rgba(0,0,0,0.3)",
-        }}>
+        <form
+          action={formAction}
+          method="POST"
+          onSubmit={handleSubmit}
+          style={{
+            background: COLORS.darkCard, border: `1px solid ${COLORS.border}`,
+            borderRadius: 16, padding: "36px",
+            boxShadow: "0 24px 60px rgba(0,0,0,0.3)",
+          }}
+        >
+          <input type="hidden" name="_next" value={nextUrl} />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_subject" value="New contact from Vine Earthworks website" />
+          <input type="hidden" name="_replyto" value={form.email || CONTACT.email} />
           {submitted ? (
             <div style={{ textAlign: "center", padding: "40px 0" }}>
               <div style={{ fontSize: 56, marginBottom: 16 }}>✅</div>
@@ -311,7 +328,7 @@ export default function ContactPage() {
               <SelectField label="Service Required" id="service" value={form.service} onChange={set("service")} options={SERVICES_LIST} />
               <TextAreaField label="Project Details" id="message" placeholder="Tell us about your project — location, size, timeline..." value={form.message} onChange={set("message")} />
 
-              <button onClick={handleSubmit} disabled={sending} style={{
+              <button type="submit" disabled={sending} style={{
                 width: "100%", background: sending ? COLORS.orangeHover : COLORS.orange,
                 color: "#fff", border: "none", padding: "16px", borderRadius: 8,
                 fontFamily: FONTS.display, fontWeight: 800, fontSize: 18,
@@ -336,7 +353,7 @@ export default function ContactPage() {
               </button>
             </>
           )}
-        </div>
+        </form>
       </div>
 
       <style>{`

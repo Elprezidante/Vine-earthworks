@@ -21,9 +21,9 @@ export const FONTS = {
 };
 
 export const CONTACT = {
-  phone: '+254705241995',
+  phone: '+254 705 241 995',
   phoneDisplay: '+254 705 241 995',
-  email: 'oscarkirika46@gmail.com',
+  email: 'isaacmburu2540@gmail.com',
   location: 'Enkare,Along NamangaRoad,Nairobi-Kenya',
   social: '@VineEarthworksGlass',
   facebook: 'https://facebook.com/Vine Earthworks Glass and Aluminium',
