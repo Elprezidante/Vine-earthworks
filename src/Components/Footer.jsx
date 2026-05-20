@@ -49,7 +49,6 @@ function FooterLink({ label, onClick }) {
     </li>
   );
 }
-
 export default function Footer({ onNavigate }) {
   const [emailInput, setEmailInput] = useState("");
   const [subscribed, setSubscribed] = useState(false);
@@ -407,6 +406,11 @@ export default function Footer({ onNavigate }) {
         }}>
           Thank you for being here — Vine Earthworks appreciates your visit.
         </marquee>
+        <div style={{ textAlign: 'center', marginTop: 8 }}>
+          <small style={{ fontFamily: FONTS.body, fontSize: 11, color: COLORS.textMuted, opacity: 0.85 }}>
+            © {new Date().getFullYear()} Isaac Mburu
+          </small>
+        </div>
       </div>
 
       <style>{`
