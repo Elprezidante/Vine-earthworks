@@ -274,7 +274,7 @@ export default function ContactPage() {
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
               {[
                 { label: "Facebook", icon: "f", href: CONTACT.facebook, color: "#1877F2" },
-                { label: "LinkedIn", icon: "in", href: "#", color: "#0A66C2" },
+                { label: "LinkedIn", icon: "in", href: CONTACT.linkedin, color: "#0A66C2" },
               ].map(s => (
                 <a key={s.label} href={s.href} target="_blank" rel="noreferrer" style={{
                   display: "flex", alignItems: "center", gap: 8,
@@ -291,7 +291,7 @@ export default function ContactPage() {
               ))}
             </div>
             <div style={{ marginTop: 10, fontFamily: FONTS.body, fontSize: 12, color: COLORS.textMuted }}>
-              {CONTACT.social}
+              {CONTACT.social} • LinkedIn: {CONTACT.linkedinHandle}
             </div>
           </div>
         </div>

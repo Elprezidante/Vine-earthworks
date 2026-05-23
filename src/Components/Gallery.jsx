@@ -2,14 +2,14 @@ import { useState, useRef, useEffect } from "react";
 import { COLORS, FONTS } from "../theme";
 
 const GALLERY_ITEMS = [
-  { title: "Curtain Wall Facade", subtitle: "Commercial glazing project, Nairobi CBD", category: "Glass", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80", span: "tall" },
-  { title: "Excavation & Site Prep", subtitle: "Large-scale earthmoving, Thika Road", category: "Earthworks", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=700&q=80", span: "wide" },
-  { title: "Frameless Glass Door", subtitle: "Office entrance, Westlands", category: "Glass", img: "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=400&q=80" },
-  { title: "Aluminium Windows", subtitle: "Residential installation, Karen", category: "Aluminium", img: "https://images.unsplash.com/photo-1448630360428-65456885c650?w=400&q=80" },
-  { title: "Shower Cubicle", subtitle: "Luxury bathroom, Kilimani", category: "Glass", img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&q=80" },
-  { title: "Road Grading", subtitle: "Access road, Ngong", category: "Earthworks", img: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=700&q=80", span: "wide" },
-  { title: "Glass Balcony", subtitle: "Residential estate, Runda", category: "Glass", img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&q=80" },
-  { title: "Stainless Staircase", subtitle: "Commercial complex, Upper Hill", category: "Metalwork", img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&q=80" },
+  { title: "Curtain Wall Facade", subtitle: "Commercial glazing project, Nairobi CBD", category: "Glass", img: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=900&q=80", span: "tall" },
+  { title: "Excavation & Site Prep", subtitle: "Large-scale earthmoving, Thika Road", category: "Earthworks", img: "https://images.unsplash.com/photo-1508873699372-7ae6d4d43166?auto=format&fit=crop&w=900&q=80", span: "wide" },
+  { title: "Frameless Glass Door", subtitle: "Office entrance, Westlands", category: "Glass", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80" },
+  { title: "Aluminium Windows", subtitle: "Residential installation, Karen", category: "Aluminium", img: "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=900&q=80" },
+  { title: "Shower Cubicle", subtitle: "Luxury bathroom, Kilimani", category: "Glass", img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=900&q=80" },
+  { title: "Road Grading", subtitle: "Access road, Ngong", category: "Earthworks", img: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=900&q=80", span: "wide" },
+  { title: "Glass Balcony", subtitle: "Residential estate, Runda", category: "Glass", img: "https://images.unsplash.com/photo-1540480690074-9083c4b7f990?auto=format&fit=crop&w=900&q=80" },
+  { title: "Stainless Staircase", subtitle: "Commercial complex, Upper Hill", category: "Metalwork", img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80" },
 ];
 
 const CATEGORIES = ["All", "Glass", "Aluminium", "Earthworks", "Metalwork"];

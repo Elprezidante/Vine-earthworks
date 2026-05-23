@@ -26,4 +26,6 @@ export const CONTACT = {
   location: 'Nairobi, Kenya',
   social: '@VineEarthworksGlass',
   facebook: 'https://facebook.com/VineEarthworksGlass',
+  linkedin: 'https://www.linkedin.com/company/vine-earthworks',
+  linkedinHandle: '@VineEarthworksGlass'
 };

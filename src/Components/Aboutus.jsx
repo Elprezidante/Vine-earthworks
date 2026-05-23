@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { COLORS, FONTS } from "../theme";
+import { COLORS, FONTS, CONTACT } from "../theme";
 
 const FEATURES = [
   { icon: "🏗️", title: "10+ Years Experience", desc: "Over a decade delivering quality glass, aluminium, and earthmoving services across Kenya." },
@@ -231,6 +231,30 @@ export default function AboutPage({ onNavigate }) {
           >
             Work With Us →
           </button>
+          <a
+            href={CONTACT.linkedin}
+            target="_blank"
+            rel="noreferrer noopener"
+            style={{
+              display: "inline-block",
+              marginLeft: 16,
+              background: "transparent",
+              color: COLORS.textPrimary,
+              border: `1px solid ${COLORS.orange}`,
+              padding: "14px 28px",
+              borderRadius: 6,
+              fontFamily: FONTS.display,
+              fontWeight: 700,
+              letterSpacing: 1.5,
+              textTransform: "uppercase",
+              textDecoration: "none",
+              transition: "all 0.25s",
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = COLORS.orange; e.currentTarget.style.color = "#fff"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = COLORS.textPrimary; }}
+          >
+            LinkedIn Profile →
+          </a>
         </div>
       </div>
 

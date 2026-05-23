@@ -2,17 +2,17 @@ import { useState, useEffect, useRef } from "react";
 import { COLORS, FONTS } from "../theme";
 
 const GLASS_SERVICES = [
-  { num: "01", title: "Glass Supply", tag: "Supply & Delivery", desc: "Bulk glass sheets in all specifications supplied and delivered directly to your construction site. Float, tempered, laminated, and tinted glass available.", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" },
-  { num: "02", title: "Glass Fitting", tag: "Installation", desc: "Expert technicians installing glass panes with precision, safety, and care. We handle residential, commercial, and industrial glazing projects.", img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=80" },
-  { num: "03", title: "Aluminium Windows & Doors", tag: "Fabrication", desc: "Custom-fabricated aluminium window frames, sliding doors, casement windows and bi-fold systems — built to last with modern aesthetics.", img: "https://images.unsplash.com/photo-1448630360428-65456885c650?w=500&q=80" },
-  { num: "04", title: "Stainless Staircases", tag: "Metalwork", desc: "Stainless steel staircase systems, handrails, balustrades and cable railing — combining structural strength with sleek, modern design.", img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=500&q=80" },
-  { num: "05", title: "Balcony Systems", tag: "Construction", desc: "Design and build of glass balcony railings, Juliet balconies, and full enclosure systems for modern residential and commercial buildings.", img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&q=80" },
-  { num: "06", title: "Curtain Walls", tag: "Commercial", desc: "Full glass curtain wall facade systems for commercial buildings — maximizing natural light while delivering architectural impact.", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=500&q=80" },
-  { num: "07", title: "Frameless Doors", tag: "Design", desc: "Stylish frameless glass entrance doors for offices, retail shops, hotels, and upscale homes that make a lasting first impression.", img: "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=500&q=80" },
-  { num: "08", title: "Shower Cubicles", tag: "Bathroom", desc: "Frameless and semi-frameless shower enclosures — clean, watertight, and beautifully designed for modern bathroom spaces.", img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&q=80" },
+  { num: "01", title: "Glass Supply", tag: "Supply & Delivery", desc: "Bulk glass sheets in all specifications supplied and delivered directly to your construction site. Float, tempered, laminated, and tinted glass available.", img: "/Glass%20supply.jpg" },
+  { num: "02", title: "Glass Fitting", tag: "Installation", desc: "Expert technicians installing glass panes with precision, safety, and care. We handle residential, commercial, and industrial glazing projects.", img: "/Glassfitting.jpg" },
+  { num: "03", title: "Aluminium Windows & Doors", tag: "Fabrication", desc: "Custom-fabricated aluminium window frames, sliding doors, casement windows and bi-fold systems — built to last with modern aesthetics.", img: "/Alumiun%20glass%20door.jpg" },
+  { num: "04", title: "Stainless Staircases", tag: "Metalwork", desc: "Stainless steel staircase systems, handrails, balustrades and cable railing — combining structural strength with sleek, modern design.", img: "/stainless%20staircase.jpg" },
+  { num: "05", title: "Balcony Systems", tag: "Construction", desc: "Design and build of glass balcony railings, Juliet balconies, and full enclosure systems for modern residential and commercial buildings.", img: "/Glass%20BALCONY.jpg" },
+  { num: "06", title: "Curtain Walls", tag: "Commercial", desc: "Full glass curtain wall facade systems for commercial buildings — maximizing natural light while delivering architectural impact.", img: "/Glass%20%20installations.jpg" },
+  { num: "07", title: "Frameless Doors", tag: "Design", desc: "Stylish frameless glass entrance doors for offices, retail shops, hotels, and upscale homes that make a lasting first impression.", img: "/FRAMELESS%20DOOR.jpg" },
+  { num: "08", title: "Shower Cubicles", tag: "Bathroom", desc: "Frameless and semi-frameless shower enclosures — clean, watertight, and beautifully designed for modern bathroom spaces.", img: "/showercubicles.jpg" },
 ];
 
-function ServiceCard({ service, index }) {
+function ServiceCard({ service, index, pdfHref }) {
   const [hovered, setHovered] = useState(false);
   const [visible, setVisible] = useState(false);
   const ref = useRef();
@@ -85,7 +85,17 @@ function ServiceCard({ service, index }) {
           opacity: hovered ? 1 : 0, transform: hovered ? "translateX(0)" : "translateX(-8px)",
           transition: "all 0.3s",
         }}>
-          Learn More →
+          <a
+            href={pdfHref}
+            target="_blank"
+            rel="noreferrer noopener"
+            style={{
+              color: COLORS.orange,
+              textDecoration: "none",
+            }}
+          >
+            Learn More →
+          </a>
         </div>
       </div>
     </div>
@@ -96,12 +106,12 @@ export default function ServicesPage({ onNavigate }) {
   const [activeTab, setActiveTab] = useState("glass");
 
   const EARTH_SERVICES = [
-    { num: "01", title: "Excavation & Dumping", tag: "Heavy Plant", desc: "Hydraulic excavators for deep excavation, material loading, site preparation, and controlled dumping. All soil types handled.", img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=500&q=80" },
-    { num: "02", title: "Supply of Building Materials", tag: "Materials", desc: "Quality sand, ballast, hardcore, and aggregates sourced and delivered to your site. Bulk orders available at competitive rates.", img: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=500&q=80" },
-    { num: "03", title: "Bush Clearing", tag: "Land Prep", desc: "Bulldozer-powered vegetation clearing, tree removal, and raw land site preparation for construction and development projects.", img: "https://images.unsplash.com/photo-1565534689-9987e3a1c1e0?w=500&q=80" },
-    { num: "04", title: "Road Grading", tag: "Roads", desc: "Levelling and smoothing of earth and dirt roads using motor graders — making surfaces flat, compact, and motorable.", img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=80" },
-    { num: "05", title: "Trench Digging", tag: "Excavation", desc: "Precision narrow bucket excavation for trenches, utility conduits, drainage channels, and foundation footings.", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" },
-    { num: "06", title: "Excavator Breaker", tag: "Demolition", desc: "Hydraulic breaker attachments for breaking boulders, reinforced concrete slabs, and hard rocky ground on construction sites.", img: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=500&q=80" },
+    { num: "01", title: "Excavation & Dumping", tag: "Heavy Plant", desc: "Hydraulic excavators for deep excavation, material loading, site preparation, and controlled dumping. All soil types handled.", img: "/earthmoving.jpg" },
+    { num: "02", title: "Supply of Building Materials", tag: "Materials", desc: "Quality sand, ballast, hardcore, and aggregates sourced and delivered to your site. Bulk orders available at competitive rates.", img: "/Supply%20of%20building%20materials.jpg" },
+    { num: "03", title: "Bush Clearing", tag: "Land Prep", desc: "Bulldozer-powered vegetation clearing, tree removal, and raw land site preparation for construction and development projects.", img: "/Bush%20claering.jpg" },
+    { num: "04", title: "Road Grading", tag: "Roads", desc: "Levelling and smoothing of earth and dirt roads using motor graders — making surfaces flat, compact, and motorable.", img: "/RoadGrading.jpg" },
+    { num: "05", title: "Trench Digging", tag: "Excavation", desc: "Precision narrow bucket excavation for trenches, utility conduits, drainage channels, and foundation footings.", img: "/Trench%20digging.jpg" },
+    { num: "06", title: "Excavator Breaker", tag: "Demolition", desc: "Hydraulic breaker attachments for breaking boulders, reinforced concrete slabs, and hard rocky ground on construction sites.", img: "/escavation%20breaker.jpg" },
   ];
 
   const PDF_DOWNLOADS = {
@@ -234,7 +244,7 @@ export default function ServicesPage({ onNavigate }) {
         gap: 24,
       }}>
         {services.map((s, i) => (
-          <ServiceCard key={`${activeTab}-${i}`} service={s} index={i} />
+          <ServiceCard key={`${activeTab}-${i}`} service={s} index={i} pdfHref={PDF_DOWNLOADS[activeTab].href} />
         ))}
       </div>
 
