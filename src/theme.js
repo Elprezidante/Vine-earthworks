@@ -27,8 +27,8 @@ export const CONTACT = {
   location: 'Enkare,Along NamangaRoad,Nairobi-Kenya',
   social: '@VineEarthworksGlass',
   facebook: 'https://facebook.com/Vine Earthworks Glass and Aluminium',
-  linkedin: 'https://www.linkedin.com/company/vine-earthworks',
-  linkedinHandle: '@VineEarthworksGlass',
+  linkedin: 'https://www.linkedin.com/company/vine-earthwork',
+  linkedinHandle: 'vine Earthwork',
 };
 
 

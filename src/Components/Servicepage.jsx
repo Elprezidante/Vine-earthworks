@@ -116,12 +116,12 @@ export default function ServicesPage({ onNavigate }) {
 
   const PDF_DOWNLOADS = {
     glass: {
-      href: "/VineEarthworks_Glass_Aluminium_Catalog.pdf",
+      href: "/VineEarthworks_Complete_Catalog.pdf",
       label: "Download Glass & Aluminium Brochure",
       download: true,
     },
     earth: {
-      href: "/VineEarthworks_Earthworks_Catalog.pdf",
+      href: "/VineEarthworks_Complete_Catalog.pdf",
       label: "Download Earthworks Brochure",
       download: true,
     },
