@@ -13,7 +13,7 @@ const HeroCarousel = () => {
       <Carousel.Item>
         <div
           className="hero-slide"
-          style={{ backgroundImage: "url('/Images/agricultural products.jpg')" }}
+          style={{ backgroundImage: "url('/Project delivery.avif')" }}
         >
           <div className="hero-content">
             <h2>Fresh From The Farm</h2>
@@ -33,7 +33,7 @@ const HeroCarousel = () => {
       <Carousel.Item>
         <div
           className="hero-slide"
-          style={{ backgroundImage: "url('/Images/fruits.jpg')" }}
+          style={{ backgroundImage: "url('/earthmoving.jpg')" }}
         >
           <div className="hero-content">
             <h2>Organic Fruits</h2>
@@ -53,7 +53,7 @@ const HeroCarousel = () => {
       <Carousel.Item>
         <div
           className="hero-slide"
-          style={{ backgroundImage: "url('/Images/vegetableadvert.jpg')" }}
+          style={{ backgroundImage: "url('/welcome poster.png')" }}
         >
           <div className="hero-content">
             <h2>Livestock & Dairy</h2>
